@@ -12,18 +12,12 @@ const sagaMiddleware = createSagaMiddleware({ sagaMonitor });
 const store = createStore(reducer, applyMiddleware(sagaMiddleware));
 sagaMiddleware.run(rootSaga);
 
-const action = type => store.dispatch({ type });
+
+const action = type =>store.dispatch({type});
 
 function render() {
   ReactDOM.render(
-    <Counter
-      value={store.getState()}
-      onIncrement={action("INCREMENT")}
-      onDecrement={() => action("DECREMENT")}
-      onIncrementIfOdd={() => action("INCREMENT_IF_ODD")}
-      onIncrementAsync={() => action("INCREMENT_ASYNC")}
-      onDecrementAsync={() => action("DECREMENT_ASYNC")}
-    />,
+    <Counter onIncrement ={()=>action('INCREMENT')} ></Counter>,
     document.getElementById("root")
   );
 }
