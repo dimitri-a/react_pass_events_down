@@ -7,17 +7,18 @@ import sagaMonitor from "./sagaMonitor";
 import Counter from "./components/Counter";
 import reducer from "./reducers";
 import rootSaga from "./sagas";
+import App from "./App";
 
-const sagaMiddleware = createSagaMiddleware({ sagaMonitor });
-const store = createStore(reducer, applyMiddleware(sagaMiddleware));
-sagaMiddleware.run(rootSaga);
+//const sagaMiddleware = createSagaMiddleware({ sagaMonitor });
+const store = createStore(reducer);
+//sagaMiddleware.run(rootSaga);
 
 
-const action = type =>store.dispatch({type});
+const action = type => store.dispatch({ type });
 
 function render() {
   ReactDOM.render(
-    <Counter onIncrement ={()=>action('INCREMENT')} ></Counter>,
+   <App/>,
     document.getElementById("root")
   );
 }
