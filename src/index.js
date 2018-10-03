@@ -8,6 +8,7 @@ import Counter from "./components/Counter";
 import reducer from "./reducers";
 import rootSaga from "./sagas";
 import App from "./App";
+import RefComp from './RefComp'
 
 //const sagaMiddleware = createSagaMiddleware({ sagaMonitor });
 const store = createStore(reducer);
@@ -18,7 +19,7 @@ const action = type => store.dispatch({ type });
 
 function render() {
   ReactDOM.render(
-   <App/>,
+   <RefComp/>,
     document.getElementById("root")
   );
 }
